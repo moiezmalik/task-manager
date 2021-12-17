@@ -5,10 +5,10 @@
         <div class="col-md-6 offset-md-3">
           <div class="card bg-light">
             <div class="card-head">
-              <Head title="Task App" logo="/img/Moiez-Malik.5be7a4c5.png" />
+              <Head title="Task App" logo="http://moiezmalik.com/moiez.JPG" />
             </div>
             <div class="card-body">
-              <TaskForm />
+              <TaskForm @form-data="addTask" />
               <TasksList @delete-task="deleteTask" :tasks="tasks" />
             </div>
           </div>
@@ -39,7 +39,11 @@ import TasksList from "@/components/tasksList.vue";
     deleteTask(id: any) {
       console.log(id);
         this.tasks = this.tasks.filter((task: any) => task.id !== id)
-      }
+      },
+    addTask(data: any){
+      this.tasks = [...this.tasks, data]
+    }
+    
   },
   created() {
     this.tasks = [
