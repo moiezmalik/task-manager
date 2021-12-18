@@ -1,4 +1,8 @@
 <template>
+<div style="text-align: right;">
+  <button @click="toogleAddTask" :style="{background: color}" class="btn btn-primary">{{text}}</button>
+</div>
+<div v-show="toogleTaskForm">
   <form id="form" @submit="onSubmit">
     <div class="row mt-3">
       <div class="col-sm-2">
@@ -17,7 +21,7 @@
       </div>
       <div class="row mt-3">
         <div class="col-sm-2">
-            <label for="reminder" class="control-label">Reminder</label>
+            <label for="reminder" class="control-label">Important</label>
         </div>
         <div class="col-sm-10">
           <input type="checkbox" v-model="reminder" id="reminder" class="form-box" />
@@ -36,6 +40,7 @@
       </div>
     </div>
   </form>
+  </div>
 </template>
 
 <script>
@@ -43,13 +48,22 @@ export default {
   name: "TaskForm",
   data(){
     return {
-      id: 0,
+      id: 3,
       title: '',
       description: '',
-      reminder: false
+      reminder: false,
+      toogleTaskForm: false,
+      text: 'Add Task',
+      color: 'green'
     }
   },
   methods:{
+    toogleAddTask(){
+      this.toogleTaskForm = !this.toogleTaskForm;
+      this.toogleTaskForm ? this.text = 'Close' : this.text = 'Add Task';
+      this.toogleTaskForm ? this.color = 'red' :  this.color = 'green';
+
+    },
     onSubmit(e){
       e.preventDefault()
       this.id++;
@@ -67,7 +81,7 @@ export default {
     }
   },
   props: {
-      tasks: Array
+      tasks: Array,
   }
 };
 </script>

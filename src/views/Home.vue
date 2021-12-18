@@ -9,6 +9,7 @@
             </div>
             <div class="card-body">
               <TaskForm @form-data="addTask" />
+              <br>
               <TasksList @delete-task="deleteTask" :tasks="tasks" />
             </div>
           </div>
