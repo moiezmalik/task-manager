@@ -1,22 +1,24 @@
 <template>
-  <div class="home">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <div class="card bg-light">
-            <div class="card-head">
-              <Head title="Task App" logo="http://moiezmalik.com/moiez.JPG" />
-            </div>
-            <div class="card-body">
-              <TaskForm @form-data="addTask" />
-              <br>
-              <TasksList @delete-task="deleteTask" :tasks="tasks" />
+  <main>
+    <div class="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="card bg-light">
+              <div class="card-head">
+                <Head title="Task App" logo="http://moiezmalik.com/moiez.JPG" />
+              </div>
+              <div class="card-body">
+                <TaskForm @form-data="addTask" />
+                <br />
+                <TasksList @delete-task="deleteTask" :tasks="tasks" />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
@@ -39,12 +41,11 @@ import TasksList from "@/components/tasksList.vue";
   methods: {
     deleteTask(id: any) {
       console.log(id);
-        this.tasks = this.tasks.filter((task: any) => task.id !== id)
-      },
-    addTask(data: any){
-      this.tasks = [...this.tasks, data]
-    }
-    
+      this.tasks = this.tasks.filter((task: any) => task.id !== id);
+    },
+    addTask(data: any) {
+      this.tasks = [...this.tasks, data];
+    },
   },
   created() {
     this.tasks = [
@@ -73,4 +74,7 @@ export default class Home extends Vue {}
 </script>
 
 <style>
+main{
+  height: 87vh;
+}
 </style>
