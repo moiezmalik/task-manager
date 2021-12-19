@@ -20,6 +20,26 @@ export default {
 </script>
 
 <style>
+     html{
+   margin:0;
+   padding:0;
+   height:100%;
+}
+body {
+   min-height:100%;
+   position:relative;
+}
+main {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   padding-top: 36px;   /* Height of the footer */
+}
+
 h1{
   font-size: 24px;
 }

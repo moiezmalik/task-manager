@@ -74,7 +74,5 @@ export default class Home extends Vue {}
 </script>
 
 <style>
-main{
-  height: 87vh;
-}
+
 </style>
